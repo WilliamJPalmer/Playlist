@@ -1,0 +1,45 @@
+<div style="border:1px solid #bbbbbb; background-color:#ABD3E5;padding:25px;">
+
+<p style="text-align:center;font-size:24px;font-weight:bold;margin-bottom:-10px;">Hello, <%=current_user.first_name%> <%=current_user.last_name%></p>
+
+<h3>All the songs in our collection:</h3>
+<table style="border:1px solid #999999;background-color:white;width:450px;border-spacing:0px;">
+  <thead style="background-color:#5A8DB2;font-size:14px;;color:#eeeeee">
+    <tr>
+      <td style="padding:8px;">Artist</td>
+      <td style="padding:4px;">Title</td>
+      <td style="padding:4px;">No. Times Added</td>
+      <td style="padding:4px;">Add to Playlist</td>
+    </tr>
+  </thead>
+  <tbody style="overflow:scroll;">
+        <%@songs.each do |song|%>
+        <tr style="font-size:12px;">
+          <td style="padding:4px;"> <%= song.artist %></td>
+          <td style="padding:4px;"> <a href="/songs/<%=song.id%>"><%=song.title%></a> </td>
+          <td style="padding:4px;"> <%=  %></td>
+          <td>
+            <form action="/userplaylists/" method="post">
+              <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+              <input type="hidden" name="song_id" value="<%=song.id%>">
+              <input type="submit" name="" value="Add">
+            </form>
+        </td>
+
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<h3>Add a Song</h3>
+<form action="/songs" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <input type="text" name="title" placeholder="Song Title"><br>
+  <input type="text" name="artist" placeholder="Artist Name"><br>
+
+  <input type="submit" name="add" value="Add Song">
+</form>
+
+
+
+</div>
