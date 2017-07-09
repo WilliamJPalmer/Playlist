@@ -1,17 +1,36 @@
 class UsersController < ApplicationController
-  def index
+  before_action :require_login, except: [:index,:login, :create]
 
+  def index
+    # session.clear
   end
 
   def show
-    @user = User.where(id: params[:id])
+    @user = User.find_by(id: params[:id])
+    puts  '>>>>>>>>>>-----------------!!!!!!!!!!!!'
     @playlist = Userplaylist.all
+    puts  '>>>>>>>>>>-----------------@@@@@@@@@@@@s'
+    puts @playlist
+    # @playlist.all.where("user_id=?", @user.id)
+    @userslist = []
+    puts  '>>>>>>>>>>-----------------#############'
+    puts @user.id
+    puts  '>>>>>>>>>>-----------------#############'
+    puts @user
+    @playlist.each do |item|
+      puts  '>>>>>>>>>>-----------------^^^^^^^^^^^^'
+      if item.user.id == @user.id
+        unless @userslist.include?(item.song)
+          @userslist << item.song
 
-    # @userslist = []
-    # @playlist.each do |user|
-    # if Userplaylist.all.where("user_id=?", user.id).length>0
-    #   @userlist << user
-    # end
+
+        puts  '>>>>>>>>>>-----------------**************'
+        puts @user.id
+        puts  '>>>>>>>>>>-----------------$$$$$$$$$$$$$$'
+        end
+      end
+    end
+    puts @userslist
   end
 
   def login

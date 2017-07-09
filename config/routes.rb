@@ -23,11 +23,13 @@ Rails.application.routes.draw do
 
   get 'songs/:id' => 'songs#show'
 
-  post 'userplaylists/' => 'userplaylists#create'
+  post 'userplaylists/:id' => 'userplaylists#create'
 
   get 'userplaylists/index'
 
   get 'userplaylists/show'
+
+  patch 'userplaylists/:id' => 'userplaylists#update'
 
 
 

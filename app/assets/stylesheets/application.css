@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+ .main_bkg{
+   background-image: url(login_bkgrnd.jpg);
+ }
+ .wrapper{
+   margin:0px auto;
+   padding:20px;
+   font-family:sans-serif;
+   width:500px;
+   /*border:1px solid #666666;*/
+   background-color:rgba(225,225,225,.5);
+   box-shadow: 5px 5px 10px #333;
+   border-radius: 10px;
+
+ }
+ .title{
+   font-family: 'Rock Salt', cursive;
+   font-size: 84px;
+   text-shadow: 5px 5px 10px darkblue;
+   color:white;
+   text-align: center;
+   padding:0px;
+   margin:-20px;
+ }

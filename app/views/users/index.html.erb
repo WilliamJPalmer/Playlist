@@ -1,5 +1,8 @@
-<fieldset style="padding:20px;text-align:center;background-color:#ABD3E5;border:1px solid #777777">
-  <legend style="text-align:center;font-size:24px;font-weight:bold;color:#777777;">Register</legend>
+<div class="logregcontainer">
+
+
+<fieldset class="fieldset-style">
+  <legend class="legend-title">Register</legend>
   <form  action="/users/" method="post">
     <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>"><br>
     <input style="margin-bottom:10px;"  type="text" name="first_name" placeholder="First Name"><br>
@@ -13,8 +16,10 @@
   </form>
 </fieldset>
 
-<fieldset style="padding:20px;text-align:center;background-color:#ffffff;border:1px solid #777777">
-  <legend style="text-align:center;font-size:24px;font-weight:bold;color:#777777;">Login</legend>
+<hr style="margin-top:20px;margin-bottom: 15px;">
+
+<fieldset class="fieldset-style2">
+  <legend class="legend-title2">Login</legend>
     <form action="/users/login" method="post">
       <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
       <input style="margin-bottom:10px;"  type="text" name="email" value="" placeholder="Email"><br>
@@ -23,3 +28,5 @@
 
     </form>
 </fieldset>
+
+</div>
